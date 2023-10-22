@@ -10,7 +10,7 @@ const signup = async (req, res) => {
         return res.status(200).send({message: 'User account created'});
     } catch (error) {
         if (error.code === 11000 && error.keyPattern.email) {
-            return res.status(400).send({message: 'User with this email or phone number already exists'});
+            return res.status(400).send({message: 'User with this email already exists'});
         }
         console.log(error);
         return res.status(500).send({message: 'Something went wrong!'});
