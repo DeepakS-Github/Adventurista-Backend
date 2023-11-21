@@ -9,6 +9,8 @@ router.post("/add", postController.addPost);
 // Get Post
 router.get("/get", postController.getAllPosts);
 
+// Get Post By User Id
+router.get("/get/:userId", postController.getPostsByUserId);
 
 // Get Post By Pages
 router.get("/getpage", postController.getPostsByPage);

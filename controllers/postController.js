@@ -36,6 +36,18 @@ const getAllPosts = async (req, res) => {
 };
 
 
+// Get Post By User Id
+const getPostsByUserId = async (req,res)=>{
+  try {
+    const data = await Post.find({userId: req.params.userId});
+    return res.status(200).send({ message: data });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ message: "Something went wrong!" });
+  }
+}
+
+
 // Get Posts by pages
 const getPostsByPage = async (req, res) => {
   try {
@@ -55,5 +67,6 @@ const getPostsByPage = async (req, res) => {
 module.exports = {
   addPost,
   getAllPosts,
-  getPostsByPage
+  getPostsByPage,
+  getPostsByUserId
 };
