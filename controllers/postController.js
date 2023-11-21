@@ -64,9 +64,25 @@ const getPostsByPage = async (req, res) => {
   }
 };
 
+
+// Get Posts By Id
+const getPostsById = async (req, res) => {
+  try {
+    const postId = req.query.postId;
+    const data = await Post.find({_id: postId});
+    return res.status(200).send({ message: data });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({ message: "Something went wrong!" });
+  }
+};
+
+
+
 module.exports = {
   addPost,
   getAllPosts,
   getPostsByPage,
-  getPostsByUserId
+  getPostsByUserId,
+  getPostsById
 };

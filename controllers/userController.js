@@ -40,7 +40,22 @@ const login = async (req, res) => {
 }
 
 
+// Get PostsID By UserID
+
+const postIdsByUserId = async (req, res) => {
+    try {
+        const userId = req.query.userId;
+        const user = await User.findOne({ _id: userId });
+        return res.status(200).send({ message: user.postIds});
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({ message: 'Something went wrong!' });
+    }
+}
+
+
 module.exports = {
     signup,
-    login
+    login,
+    postIdsByUserId
 };

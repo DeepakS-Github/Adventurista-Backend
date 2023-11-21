@@ -15,5 +15,8 @@ router.get("/get/:userId", postController.getPostsByUserId);
 // Get Post By Pages
 router.get("/getpage", postController.getPostsByPage);
 
+// Get Post By Id
+router.get("/getbyid", postController.getPostsById);
+
 
 module.exports = router;
