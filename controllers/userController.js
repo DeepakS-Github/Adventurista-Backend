@@ -32,13 +32,12 @@ const login = async (req, res) => {
             res.status(401); 
             return res.send({ message: "Password is incorrect" });
         }
-        return res.status(200).send({ message: "User login successful", userId: user._id, userName: user.name });
+        return res.status(200).send({ message: "User login successful", userId: user._id, userName: user.name, userEmail: user.email });
     } catch (error) {
         console.log(error);
         return res.status(500).send({ message: 'Something went wrong!' });
     }
 }
-
 
 
 module.exports = {
